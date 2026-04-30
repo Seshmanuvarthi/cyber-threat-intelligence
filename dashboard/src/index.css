@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-darkBg text-slate-200 antialiased selection:bg-critical selection:text-white m-0 p-0 overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-panelBg backdrop-blur-xl border border-white/10 rounded-2xl shadow-glowPanel;
+  }
+  .panel-title {
+    @apply text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-3 flex items-center gap-2;
+  }
+  .severity-critical {
+    @apply text-critical shadow-glowCritical;
+  }
+  .severity-high {
+    @apply text-high;
+  }
+  .severity-medium {
+    @apply text-medium;
+  }
+  .severity-low {
+    @apply text-low;
+  }
+  .badge-critical {
+    @apply bg-critical/15 text-critical border border-critical/40 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+  }
+  .badge-high {
+    @apply bg-high/15 text-high border border-high/40 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+  }
+  .badge-medium {
+    @apply bg-medium/15 text-medium border border-medium/40 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+  }
+  .badge-low {
+    @apply bg-low/15 text-low border border-low/40 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+  }
+}
+
+/* Leaflet dark map */
+.leaflet-container {
+  background: #050810 !important;
+  border-radius: 0.75rem;
+  width: 100%;
+  height: 100%;
+}
+.leaflet-tile {
+  filter: invert(100%) hue-rotate(180deg) brightness(90%) contrast(85%);
+}
+.leaflet-control-attribution { display: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* Pipeline status dot */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.status-dot-live { animation: blink 1.2s ease-in-out infinite; }

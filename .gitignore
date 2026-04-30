@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+output_v2/
+output_v3/
+output_v4/
+output_graph/
+flink_alerts.json
+spark-warehouse/
+checkpoint/
+*.egg-info/
+dashboard/node_modules/
+dashboard/dist/
+.env
+data/
